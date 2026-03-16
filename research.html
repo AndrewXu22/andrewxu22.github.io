@@ -1,0 +1,46 @@
+---
+layout: default
+title: Research
+---
+
+<h1 class="page-title">Research</h1>
+
+<section style="margin-bottom:2.5rem;">
+  <h2 class="section-title">Current Projects</h2>
+
+  <div class="project-card">
+    <span class="project-tag">🚀 Active</span>
+    <h3>SpamX: Next-Generation System for Efficient Online Scalable Social Spam Detection</h3>
+    <p>There are many open problems and challenges that needed to be carefully considered and solved in the future:</p>
+    <ul style="margin:.6rem 0 0 1.2rem;font-size:.9rem;line-height:1.8;">
+      <li><strong>Large-scale online social data streams</strong> — how to handle enormous data streams from many sites. Our previous work proposed an available solution, but at the system level it still requires more sophisticated design and implementation.</li>
+      <li><strong>Timeliness and effectiveness</strong> — how to guarantee social spam is detected in a timely and effective manner, including instantly detecting spam across various topics or keywords and seamlessly handling data from different sites/platforms.</li>
+      <li><strong>Inner relationships of spam</strong> — how to effectively use the nature or inner relationships of spam in online detection. Exploring a new generation of systems for processing large-scale online social data streams is a promising research topic.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Past Projects</h2>
+
+  <div class="project-card">
+    <span class="project-tag">✅ Completed</span>
+    <h3>SR3: Customizable Recovery for Stateful Stream Processing Systems</h3>
+    <p>Modern stream processing applications need to store and update state along with their processing and handle live data streams from massive and geo-distributed data sets. Since they run in a dynamic distributed environment, multiple stream operators can fail simultaneously, causing severe state loss. State-of-the-art systems are mainly designed for low-latency intra-datacenter settings and do not scale well for large distributed states.</p>
+    <p style="margin-top:.6rem;">We designed <strong>SR3</strong>, a customizable state recovery framework that provides fast and scalable state recovery mechanisms. SR3 offers three recovery mechanisms — <em>star-structured</em>, <em>line-structured</em>, and <em>tree-structured</em> recovery — to cater to different computation models, state sizes, and network settings. Our design adopts a decentralized architecture that partitions and replicates states using consistent ring overlays that leverage distributed hash tables (DHTs).</p>
+  </div>
+
+  <div class="project-card">
+    <span class="project-tag">✅ Completed</span>
+    <h3>SpamHunter: Detecting Online Social Networks Spam at Scale</h3>
+    <p>The huge amount of social spam from large-scale social networks has been a common phenomenon in the contemporary world. The majority of former research focused on improving the efficiency of identifying social spam from a limited size of data algorithmically, but few targeted data correlations among large-scale distributed social spam using system-level advantages.</p>
+    <p style="margin-top:.6rem;">We proposed <strong>SpamHunter</strong>, a new scalable system that utilizes spam correlations from distributed data sources to enhance large-scale social spam detection performance. It identifies correlated social spam from various distributed servers through DHT-based hierarchical functional trees, which act as bridges among data servers to aggregate, exchange, and communicate updated and newly emerging spam. By processing online social logs instantly, it reduces online detection latency and avoids the inefficiency of outdated spam posts.</p>
+  </div>
+
+  <div class="project-card">
+    <span class="project-tag">✅ Completed</span>
+    <h3>Machine Learning Guided Unified Memory Optimization in GPUs</h3>
+    <p>NVIDIA's unified memory (UM) creates a pool of managed memory on top of physically separated CPU and GPU memories. UM automatically migrates page-level data on demand, enabling programmers to quickly write CUDA code on heterogeneous machines without tedious manual memory management. However, it is extremely difficult for programmers to decide when and how to efficiently use unified memory.</p>
+    <p style="margin-top:.6rem;">We present a machine learning-based approach to choosing between discrete memory and unified memory, with additional consideration of different memory hints. Our approach utilizes profiler-generated metrics of CUDA programs to train a model offline, which is later used to guide optimal use of UM for multiple applications at runtime.</p>
+  </div>
+</section>
