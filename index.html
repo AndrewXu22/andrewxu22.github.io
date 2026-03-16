@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hailu Xu – CSULB</title>
-  <meta name="description" content="Hailu Xu, Assistant Professor at California State University Long Beach. Research in AI Systems, Distributed Computing, Robotics, and Big Data." />
+  <meta name="description" content="Hailu Xu, Assistant Professor at California State University Long Beach" />
   <link rel="icon" type="image/svg+xml" href="assets/profile.jpg" />
 
 
@@ -260,7 +260,21 @@
     }
     .badge-award { background: #fdf0ee; color: #c0392b; border: 1px solid #f5bfb8; }
     .badge-rate  { background: #eef3ff; color: #2c4a8a; border: 1px solid #c5d3f0; }
+    
+    /* ── Publications list items── */
+.pub-list-ordered {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+.pub-list-ordered li {
+  padding: .8rem 0 .8rem .5rem;
+  border-left: 3px solid #e5e3dc;
+  margin-bottom: .4rem;
+  transition: border-color .15s;
+}
+.pub-list-ordered li:hover { border-left-color: #1a56a0; }
 
+    
     /* ── Experience / Teaching ── */
     .exp-item { margin-bottom: 1rem; }
     .exp-role { font-weight: 600; font-size: .97rem; }
@@ -431,7 +445,7 @@
           I am a tenure-track assistant professor in the
           <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science" target="_blank">Department of Computer Engineering &amp; Computer Science</a>
           at California State University, Long Beach (CSULB), USA. I received my Ph.D. in Computer Science from
-          Florida International University in Summer 2020, my M.S. in Computer Science from the
+          Florida International University in Summer 2020 (Advisor:  <a href="https://people.ucsc.edu/~lhu82/" target="_blank">Prof. Liting Hu</a>), my M.S. in Computer Science from the
           University of Toledo in 2016, and my B.S. in Computer Science from
           North China Electric Power University in 2014.
         </p>
@@ -472,174 +486,156 @@
       </ul>
     </section>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="section">
-      <h2 class="section-heading">📝 Publications</h2>
 
-      <div class="pub-year-label">2026</div>
-      <div class="pub-item">
-        <div class="pub-title">SwiftBot: A Decentralized Platform for LLM-Powered Federated Robotic Task Execution</div>
-        <div class="pub-authors">Simon Zhang, Shuai Xu, Zhengxiong Li, Fangtian Zhong, Xiaokun Yang, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">CCGrid 2026 — 26th IEEE Intl. Symp. on Cluster, Cloud, and Internet Computing <strong>(Accept rate: 25%)</strong> </div>
-      </div>
+<!-- PUBLICATIONS -->
+<section id="publications" class="section">
+  <h2 class="section-heading">📝 Publications</h2>
 
-      <div class="pub-year-label">2025</div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722566.3727629" target="_blank">mmVanish: Extending the Vanish Attack for Multi-Radar Exploitation of mmWave Sensing with Meta-material Tags</a></div>
-        <div class="pub-authors">Xinmin Fang, <strong>Hailu Xu</strong>, Lingfeng Tao, Zhengxiong Li</div>
-        <div class="pub-venue">Sensor S&amp;P'25 — Workshop on Security and Privacy of Sensing Systems <span class="badge badge-award">🏆 Best Paper Award</span></div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722570.3726881" target="_blank">Towards a Lightweight Platform for Human-Robot Interaction in Federated Edge and IoT Environments</a></div>
-        <div class="pub-authors">Simon Zhang, Zhengxiong Li, Xin Qin, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">HumanSys'25 — Workshop on Human-Centered Sensing, Modeling, and Intelligent Systems</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://aclanthology.org/2025.wasp-main.14/" target="_blank">Atlas: Customizing Large Language Models for Reliable Bibliographic Retrieval and Verification</a></div>
-        <div class="pub-authors">Akash Kodali, <strong>Hailu Xu</strong>, Wenlu Zhang, Xin Qin</div>
-        <div class="pub-venue">WASP 2025 — Workshop for Artificial Intelligence for Scientific Publications</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://drive.google.com/file/d/17aSLmfdp02QZrYOKu4o_2qvw36wCSUCy/view?usp=share_link" target="_blank">A Scalable Software-Hardware Co-Design FPGA Platform for Floating-point Operations</a></div>
-        <div class="pub-authors">Cameron D. DiSomma, Dania Susanne Mosuli, <strong>Hailu Xu</strong>, Xiaokun Yang</div>
-        <div class="pub-venue">SEET'25 — Intl. Conference on Software Engineering of Emerging Technologies</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://arxiv.org/pdf/2507.10985" target="_blank">Pronunciation Deviation Analysis Through Voice Cloning and Acoustic Comparison</a></div>
-        <div class="pub-authors">Andrew Valdivia, Yueming Zhang, <strong>Hailu Xu</strong>, Amir Ghasemkhani, Xin Qin</div>
-        <div class="pub-venue">arXiv preprint arXiv:2507.10985</div>
-      </div>
+  <ol class="pub-list-ordered">
+    <li>
+      <div class="pub-title">SwiftBot: A Decentralized Platform for LLM-Powered Federated Robotic Task Execution</div>
+      <div class="pub-authors">Simon Zhang, Shuai Xu, Zhengxiong Li, Fangtian Zhong, Xiaokun Yang, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">CCGrid 2026 — 26th IEEE Intl. Symp. on Cluster, Cloud, and Internet Computing. <strong>(Accept rate: 25%)</strong></div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722566.3727629" target="_blank">mmVanish: Extending the Vanish Attack for Multi-Radar Exploitation of mmWave Sensing with Meta-material Tags</a></div>
+      <div class="pub-authors">Xinmin Fang, <strong>Hailu Xu</strong>, Lingfeng Tao, Zhengxiong Li</div>
+      <div class="pub-venue">Sensor S&amp;P'25 — Workshop on Security and Privacy of Sensing Systems. <span class="badge badge-award">🏆 Best Paper Award</span></div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722570.3726881" target="_blank">Towards a Lightweight Platform for Human-Robot Interaction in Federated Edge and IoT Environments</a></div>
+      <div class="pub-authors">Simon Zhang, Zhengxiong Li, Xin Qin, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">HumanSys'25 — Workshop on Human-Centered Sensing, Modeling, and Intelligent Systems.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://aclanthology.org/2025.wasp-main.14/" target="_blank">Atlas: Customizing Large Language Models for Reliable Bibliographic Retrieval and Verification</a></div>
+      <div class="pub-authors">Akash Kodali, <strong>Hailu Xu</strong>, Wenlu Zhang, Xin Qin</div>
+      <div class="pub-venue">WASP 2025 — Workshop for Artificial Intelligence for Scientific Publications.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://drive.google.com/file/d/17aSLmfdp02QZrYOKu4o_2qvw36wCSUCy/view?usp=share_link" target="_blank">A Scalable Software-Hardware Co-Design FPGA Platform for Floating-point Operations</a></div>
+      <div class="pub-authors">Cameron D. DiSomma, Dania Susanne Mosuli, <strong>Hailu Xu</strong>, Xiaokun Yang</div>
+      <div class="pub-venue">SEET'25 — Intl. Conference on Software Engineering of Emerging Technologies.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://arxiv.org/pdf/2507.10985" target="_blank">Pronunciation Deviation Analysis Through Voice Cloning and Acoustic Comparison</a></div>
+      <div class="pub-authors">Andrew Valdivia, Yueming Zhang, <strong>Hailu Xu</strong>, Amir Ghasemkhani, Xin Qin</div>
+      <div class="pub-venue">arXiv preprint arXiv:2507.10985.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231224010440" target="_blank">WSSGCN: Wide Sub-stage Graph Convolutional Networks</a></div>
+      <div class="pub-authors">Chao Wang, Zheng Tang, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">Neurocomputing, 2024.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://arxiv.org/abs/2407.18148" target="_blank">StraightLine: An End-to-End Resource-Aware Scheduler for Machine Learning Application Requests</a></div>
+      <div class="pub-authors">Cheng-Wei Ching, Boyuan Guan, <strong>Hailu Xu</strong>, Liting Hu</div>
+      <div class="pub-venue">arXiv, 2024.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10784507" target="_blank">MATLAB-Based Lightweight Workload Prediction via Machine Learning Models in Distributed Systems</a></div>
+      <div class="pub-authors">Ghadeer AI Jufout, Simon Zhang, <strong>Hailu Xu</strong>, Saleh AI Jufout</div>
+      <div class="pub-venue">IEEE GESS 2024.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10077765" target="_blank">Adaptive Fragment-based Parallel State Recovery for Stream Processing Systems</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Sarker Tanzir Ahmed, Dilma Da Silva, Liting Hu</div>
+      <div class="pub-venue">IEEE Transactions on Parallel and Distributed Systems (TPDS), 2023.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10015743" target="_blank">Achieving Online and Scalable Information Integrity by Harnessing Social Spam Correlations</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Boyuan Guan, Qingyang Wang, Dilma Da Silva, Liting Hu</div>
+      <div class="pub-venue">IEEE Access, 2023.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10386899" target="_blank">Fast Meta Failure Recovery for Federated Meta-Learning</a></div>
+      <div class="pub-authors">Brandon Delliquadri, Chao Wang, Shuo Chen, Zhengxiong Li, Hui Luo, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">IEEE Big Data 2023.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9848789" target="_blank">XUnified: A Framework for Guiding Optimal Use of GPU Unified Memory</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Pei-Hung Lin, Murali Emani, Liting Hu, Chunhua Liao</div>
+      <div class="pub-venue">IEEE Access, vol. 10, pp. 82614–82625, 2022.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-23498-9_2" target="_blank">Towards an Efficient Client Selection for Federated Learning</a></div>
+      <div class="pub-authors">Guanyu Ding, Zhengxiong Li, Yusen Wu, Xiaokun Yang, Mehrdad Aliasgari, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">CLOUD 2022 — Intl. Conference on Cloud Computing.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9951530/" target="_blank">Making Machine Learning Datasets and Models FAIR for HPC: A Methodology and Case Study</a></div>
+      <div class="pub-authors">Pei-Hung Lin, Chunhua Liao, Winson Chen, Tristan Vanderbruggen, Murali Emani, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">TransAI 2022 — 4th Intl. Conference on Transdisciplinary AI.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://drive.google.com/file/d/1tMeWGoBwGJO1jzzbRqjsRqbKV9X6XdEb/view?usp=sharing" target="_blank">COS2: Detecting Large-scale COVID-19 Misinformation in Social Networks</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Marco Curci, Sophanna Ek, Pinchao Liu, Zhengxiong Li, Shuai Xu</div>
+      <div class="pub-venue">CLOUD 2021 — Intl. Conference on Cloud Computing.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s11227-021-03849-7" target="_blank">FPGA acceleration on a multi-layer perceptron neural network for digit recognition</a></div>
+      <div class="pub-authors">Isaac Westby, Xiaokun Yang, Tao Liu, <strong>Hailu Xu</strong></div>
+      <div class="pub-venue">The Journal of Supercomputing, 2021.</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://drive.google.com/file/d/1drx1lnDzHw-ftLxwiiuoYPqn6KS28FlD/view?usp=sharing" target="_blank">SR3: Customizable Recovery for Stateful Stream Processing Systems</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Susana Cruz-Diaz, Dilma Da Silva, and Liting Hu</div>
+      <div class="pub-venue">The 21st ACM/IFIP Middleware Conference (Middleware 2020). <strong>(Accept Rate = 25%)</strong> [<a href="https://drive.google.com/file/d/1drx1lnDzHw-ftLxwiiuoYPqn6KS28FlD/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9139796" target="_blank">FP4S: Fragment-based Parallel State Recovery for Stateful Stream Applications</a></div>
+      <div class="pub-authors">Pinchao Liu, <strong>Hailu Xu</strong>, Dilma Da Silva, Qingyang Wang, Sarker Tanzir Ahmed, and Liting Hu</div>
+      <div class="pub-venue">34th IEEE International Parallel &amp; Distributed Processing Symposium (IPDPS 2020). [<a href="https://drive.google.com/file/d/1B4JzTytNBqcdrL0DBWqMWPhR23Qjfjsw/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="http://users.cis.fiu.edu/~lhu/doc/SpamHunter.pdf" target="_blank">Exploiting the Spam Correlations in Scalable Online Social Spam Detection</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, and Boyuan Guan</div>
+      <div class="pub-venue">2019 International Conference on Cloud Computing (CLOUD 2019). <span class="badge badge-award">🏆 Best Student Paper Award</span> [<a href="https://drive.google.com/file/d/1mUORoPjkg4vRrFCPsxQ5kAyLIHAz9tow/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8946125" target="_blank">Machine Learning Guided Optimal Use of GPU Unified Memory</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Murali Emani, Pei-Hung Lin, Liting Hu, and Chunhua Liao</div>
+      <div class="pub-venue">MCHPC '19: Workshop on Memory Centric High Performance Computing, in conjunction with SC 19, 2019. [<a href="https://drive.google.com/file/d/1Boa9g_BAeYMDPLO66hdNBbDxV9KUguYq/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8818191" target="_blank">dpSmart: A Flexible Group Based Recommendation Framework for Digital Repository Systems</a></div>
+      <div class="pub-authors">Boyuan Guan, Liting Hu, Pinchao Liu, <strong>Hailu Xu</strong>, Jennifer Fu, Qingyang Wang</div>
+      <div class="pub-venue">2019 International Congress on Big Data (Big Data Congress), 2019. [<a href="https://drive.google.com/file/d/11aKGztc_cHmq6ULNRUPh70Xo2IP8Kaeu/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8855298" target="_blank">Towards Adaptive Replication for Hot/Cold Blocks in HDFS using MemCached</a></div>
+      <div class="pub-authors">Pinchao Liu, Adnan Maruf, Farzana Beente Yusuf, Labiba Jahan, <strong>Hailu Xu</strong>, Boyuan Guan, Liting Hu, and Sitharama S. Iyengar</div>
+      <div class="pub-venue">2019 International Conference on Data Intelligence and Security (ICDIS 2019), June 2019. [<a href="https://drive.google.com/file/d/18JMYPxBV3PoVfbC4cjg18BcGiSKJKZYc/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8457788" target="_blank">Oases: An Online Scalable Spam Detection System for Social Networks</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, Yao Xiao, Wentao Wang, Jai Dayal, Qingyang Wang, and Yuzhe Tang</div>
+      <div class="pub-venue">2018 IEEE International Conference on Cloud Computing (IEEE CLOUD). <strong>(Accept Rate = 20%)</strong> [<a href="https://drive.google.com/file/d/122RxDQfPscCJYGzM5ISg381m1D5smvH8/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8621926" target="_blank">Harnessing the Nature of Spam in Scalable Online Social Spam Detection</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Boyuan Guan, Pinchao Liu, William Escudero, and Liting Hu</div>
+      <div class="pub-venue">2018 International Workshop on Big Social Media Data Management and Analysis, in conjunction with IEEE Big Data 2018. [<a href="https://drive.google.com/file/d/1hThBt9IxJJbiIX1BpkFvIkrmuNddlLK9/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8457800" target="_blank">A Toolset for Detecting Containerized Application's Dependencies in CaaS Clouds</a></div>
+      <div class="pub-authors">Pinchao Liu, Liting Hu, <strong>Hailu Xu</strong>, Zhiyuan Shi, Jason Liu, Qingyang Wang, Jai Dayal, and Yuzhe Tang</div>
+      <div class="pub-venue">2018 IEEE International Conference on Cloud Computing (IEEE CLOUD). <strong>(Accept Rate = 20%)</strong> [<a href="https://drive.google.com/file/d/1GzrVl9CyxJC37Y1oKHu606zoAk14OeCj/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+    <li>
+      <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7509829" target="_blank">Efficient spam detection across Online Social Networks</a></div>
+      <div class="pub-authors"><strong>Hailu Xu</strong>, Weiqing Sun, and Ahmad Javaid</div>
+      <div class="pub-venue">2016 IEEE International Conference on Big Data Analysis (ICBDA). IEEE, 2016. [<a href="https://drive.google.com/file/d/1AVKdGccZSLUoJe3K1ZZ3nL-4gNMO9_DD/view?usp=sharing" target="_blank">PDF</a>]</div>
+    </li>
+  </ol>
 
-      <div class="pub-year-label">2024</div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231224010440" target="_blank">WSSGCN: Wide Sub-stage Graph Convolutional Networks</a></div>
-        <div class="pub-authors">Chao Wang, Zheng Tang, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">Neurocomputing, 2024</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://arxiv.org/abs/2407.18148" target="_blank">StraightLine: An End-to-End Resource-Aware Scheduler for Machine Learning Application Requests</a></div>
-        <div class="pub-authors">Cheng-Wei Ching, Boyuan Guan, <strong>Hailu Xu</strong>, Liting Hu</div>
-        <div class="pub-venue">arXiv, 2024</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10784507" target="_blank">MATLAB-Based Lightweight Workload Prediction via Machine Learning Models in Distributed Systems</a></div>
-        <div class="pub-authors">Ghadeer AI Jufout, Simon Zhang, <strong>Hailu Xu</strong>, Saleh AI Jufout</div>
-        <div class="pub-venue">IEEE GESS 2024</div>
-      </div>
-
-      <div class="pub-year-label">2023</div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10077765" target="_blank">Adaptive Fragment-based Parallel State Recovery for Stream Processing Systems</a></div>
-        <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Sarker Tanzir Ahmed, Dilma Da Silva, Liting Hu</div>
-        <div class="pub-venue">IEEE Transactions on Parallel and Distributed Systems (TPDS), 2023</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10015743" target="_blank">Achieving Online and Scalable Information Integrity by Harnessing Social Spam Correlations</a></div>
-        <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Boyuan Guan, Qingyang Wang, Dilma Da Silva, Liting Hu</div>
-        <div class="pub-venue">IEEE Access, 2023</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10386899" target="_blank">Fast Meta Failure Recovery for Federated Meta-Learning</a></div>
-        <div class="pub-authors">Brandon Delliquadri, Chao Wang, Shuo Chen, Zhengxiong Li, Hui Luo, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">IEEE Big Data 2023</div>
-      </div>
-
-      <div class="pub-year-label">2022</div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9848789" target="_blank">XUnified: A Framework for Guiding Optimal Use of GPU Unified Memory</a></div>
-        <div class="pub-authors"><strong>Hailu Xu</strong>, Pei-Hung Lin, Murali Emani, Liting Hu, Chunhua Liao</div>
-        <div class="pub-venue">IEEE Access, vol. 10, pp. 82614–82625, 2022</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-23498-9_2" target="_blank">Towards an Efficient Client Selection for Federated Learning</a></div>
-        <div class="pub-authors">Guanyu Ding, Zhengxiong Li, Yusen Wu, Xiaokun Yang, Mehrdad Aliasgari, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">CLOUD 2022 — Intl. Conference on Cloud Computing</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9951530/" target="_blank">Making Machine Learning Datasets and Models FAIR for HPC: A Methodology and Case Study</a></div>
-        <div class="pub-authors">Pei-Hung Lin, Chunhua Liao, Winson Chen, Tristan Vanderbruggen, Murali Emani, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">TransAI 2022 — 4th Intl. Conference on Transdisciplinary AI</div>
-      </div>
-
-      <div class="pub-year-label">2021</div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://drive.google.com/file/d/1tMeWGoBwGJO1jzzbRqjsRqbKV9X6XdEb/view?usp=sharing" target="_blank">COS2: Detecting Large-scale COVID-19 Misinformation in Social Networks</a></div>
-        <div class="pub-authors"><strong>Hailu Xu</strong>, Marco Curci, Sophanna Ek, Pinchao Liu, Zhengxiong Li, Shuai Xu</div>
-        <div class="pub-venue">CLOUD 2021 — Intl. Conference on Cloud Computing</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s11227-021-03849-7" target="_blank">FPGA acceleration on a multi-layer perceptron neural network for digit recognition</a></div>
-        <div class="pub-authors">Isaac Westby, Xiaokun Yang, Tao Liu, <strong>Hailu Xu</strong></div>
-        <div class="pub-venue">The Journal of Supercomputing, 2021</div>
-      </div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://drive.google.com/file/d/1drx1lnDzHw-ftLxwiiuoYPqn6KS28FlD/view?usp=sharing" target="_blank">SR3: Customizable Recovery for Stateful Stream Processing Systems</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Susana Cruz-Diaz, Dilma Da Silva, and Liting Hu</div>
-  <div class="pub-venue">The 21st ACM/IFIP Middleware Conference (Middleware 2020). <strong>(Accept Rate = 25%)</strong> [<a href="https://drive.google.com/file/d/1drx1lnDzHw-ftLxwiiuoYPqn6KS28FlD/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9139796" target="_blank">FP4S: Fragment-based Parallel State Recovery for Stateful Stream Applications</a></div>
-  <div class="pub-authors">Pinchao Liu, <strong>Hailu Xu</strong>, Dilma Da Silva, Qingyang Wang, Sarker Tanzir Ahmed, and Liting Hu</div>
-  <div class="pub-venue">34th IEEE International Parallel &amp; Distributed Processing Symposium (IPDPS 2020). [<a href="https://drive.google.com/file/d/1B4JzTytNBqcdrL0DBWqMWPhR23Qjfjsw/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="http://users.cis.fiu.edu/~lhu/doc/SpamHunter.pdf" target="_blank">Exploiting the Spam Correlations in Scalable Online Social Spam Detection</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, and Boyuan Guan</div>
-  <div class="pub-venue">2019 International Conference on Cloud Computing (CLOUD 2019). <span class="badge badge-award">🏆 Best Student Paper Award</span> [<a href="https://drive.google.com/file/d/1mUORoPjkg4vRrFCPsxQ5kAyLIHAz9tow/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8946125" target="_blank">Machine Learning Guided Optimal Use of GPU Unified Memory</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Murali Emani, Pei-Hung Lin, Liting Hu, and Chunhua Liao</div>
-  <div class="pub-venue">MCHPC '19: Workshop on Memory Centric High Performance Computing, in conjunction with SC 19, 2019. [<a href="https://drive.google.com/file/d/1Boa9g_BAeYMDPLO66hdNBbDxV9KUguYq/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8818191" target="_blank">dpSmart: A Flexible Group Based Recommendation Framework for Digital Repository Systems</a></div>
-  <div class="pub-authors">Boyuan Guan, Liting Hu, Pinchao Liu, <strong>Hailu Xu</strong>, Jennifer Fu, Qingyang Wang</div>
-  <div class="pub-venue">2019 International Congress on Big Data (Big Data Congress), 2019. [<a href="https://drive.google.com/file/d/11aKGztc_cHmq6ULNRUPh70Xo2IP8Kaeu/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8855298" target="_blank">Towards Adaptive Replication for Hot/Cold Blocks in HDFS using MemCached</a></div>
-  <div class="pub-authors">Pinchao Liu, Adnan Maruf, Farzana Beente Yusuf, Labiba Jahan, <strong>Hailu Xu</strong>, Boyuan Guan, Liting Hu, and Sitharama S. Iyengar</div>
-  <div class="pub-venue">2019 International Conference on Data Intelligence and Security (ICDIS 2019), June 2019. [<a href="https://drive.google.com/file/d/18JMYPxBV3PoVfbC4cjg18BcGiSKJKZYc/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8457788" target="_blank">Oases: An Online Scalable Spam Detection System for Social Networks</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, Yao Xiao, Wentao Wang, Jai Dayal, Qingyang Wang, and Yuzhe Tang</div>
-  <div class="pub-venue">2018 IEEE International Conference on Cloud Computing (IEEE CLOUD). <strong>(Accept Rate = 20%)</strong> [<a href="https://drive.google.com/file/d/122RxDQfPscCJYGzM5ISg381m1D5smvH8/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8621926" target="_blank">Harnessing the Nature of Spam in Scalable Online Social Spam Detection</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Boyuan Guan, Pinchao Liu, William Escudero, and Liting Hu</div>
-  <div class="pub-venue">2018 International Workshop on Big Social Media Data Management and Analysis, in conjunction with IEEE Big Data 2018. [<a href="https://drive.google.com/file/d/1hThBt9IxJJbiIX1BpkFvIkrmuNddlLK9/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8457800" target="_blank">A Toolset for Detecting Containerized Application's Dependencies in CaaS Clouds</a></div>
-  <div class="pub-authors">Pinchao Liu, Liting Hu, <strong>Hailu Xu</strong>, Zhiyuan Shi, Jason Liu, Qingyang Wang, Jai Dayal, and Yuzhe Tang</div>
-  <div class="pub-venue">2018 IEEE International Conference on Cloud Computing (IEEE CLOUD). <strong>(Accept Rate = 20%)</strong> [<a href="https://drive.google.com/file/d/1GzrVl9CyxJC37Y1oKHu606zoAk14OeCj/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
-
-<div class="pub-item">
-  <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7509829" target="_blank">Efficient spam detection across Online Social Networks</a></div>
-  <div class="pub-authors"><strong>Hailu Xu</strong>, Weiqing Sun, and Ahmad Javaid</div>
-  <div class="pub-venue">2016 IEEE International Conference on Big Data Analysis (ICBDA). IEEE, 2016. [<a href="https://drive.google.com/file/d/1AVKdGccZSLUoJe3K1ZZ3nL-4gNMO9_DD/view?usp=sharing" target="_blank">PDF</a>]</div>
-</div>
+</section>
 
 
-        
-    </section>
-
+    
     <!-- EXPERIENCE -->
     <section id="experience" class="section">
-      <h2 class="section-heading">💼 Experience &amp; Education</h2>
+      <h2 class="section-heading">💼 Experience</h2>
 
       <div class="exp-item">
         <div class="exp-role">Assistant Professor</div>
@@ -650,7 +646,7 @@
         <div class="exp-role">Research Intern</div>
         <div class="exp-org">Lawrence Livermore National Laboratory</div>
         <div class="exp-period">Summer 2019</div>
-        <div class="exp-detail">Mentors: Dr. Chunhua Liao, Dr. Murali Emani</div>
+        <div class="exp-detail">Mentors: [<a href="https://people.llnl.gov/liao6" target="_blank">Dr. Chunhua Liao</a>], [<a href="https://memani1.github.io/" target="_blank">Dr. Murali Emani</a>]</div>
       </div>
       <div class="exp-item">
         <div class="exp-role">Research &amp; Teaching Assistant</div>
