@@ -1,66 +1,825 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hailu Xu – CSULB</title>
+  <meta name="description" content="Hailu Xu, Assistant Professor at California State University Long Beach. Research in AI Systems, Distributed Computing, Robotics, and Big Data." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
 
-<!-- Profile Card -->
-<div class="profile-card">
-  <div class="profile-photo-placeholder">👨‍🏫</div>
-  <div>
-    <h1 class="profile-name">Hailu Xu</h1>
-    <div class="profile-title">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f7f5;
+      color: #1c1c1a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #1a56a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Top nav bar ── */
+    #topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8e6e0;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    #topnav a {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #555;
+      transition: color .15s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    #topnav a:hover, #topnav a.active {
+      color: #1a56a0;
+      border-bottom-color: #1a56a0;
+      text-decoration: none;
+    }
+    .nav-hamburger {
+      display: none;
+      position: fixed;
+      top: 10px; right: 16px;
+      z-index: 300;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #333; margin: 5px 0;
+      transition: all .2s;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      display: flex;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 72px 24px 60px;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    /* ── LEFT: Profile sidebar ── */
+    .profile-sidebar {
+      width: 230px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 68px;
+    }
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #dde8f5;
+      display: block;
+      margin: 0 auto 1.1rem;
+      background: #e8eff9;
+    }
+    .profile-photo-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a4d8f 0%, #2e7bcf 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      margin: 0 auto 1.1rem;
+    }
+    .profile-name {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: .25rem;
+      color: #111;
+    }
+    .profile-subtitle {
+      font-size: .78rem;
+      text-align: center;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .profile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+    .profile-links li {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .8rem;
+      color: #555;
+    }
+    .profile-links li .icon { font-size: .9rem; flex-shrink: 0; }
+    .profile-links li a { color: #1a56a0; }
+    .profile-links li a:hover { text-decoration: underline; }
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid #e5e3dc;
+      margin: 1rem 0;
+    }
+
+    /* ── RIGHT: Main content ── */
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 64px;
+    }
+    .section-heading {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5e3dc;
+      margin-left: .5rem;
+    }
+
+    /* Bio */
+    .bio-text {
+      font-size: .93rem;
+      line-height: 1.85;
+      color: #2a2a28;
+    }
+    .bio-text p + p { margin-top: .75rem; }
+    .bio-text strong { color: #111; }
+    .bio-text a { font-weight: 500; }
+
+    /* Recruiting pill */
+    .recruiting {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #f0c040;
+      border-radius: 4px;
+      padding: .4rem .9rem;
+      font-size: .83rem;
+      margin-top: .8rem;
+      color: #7a5500;
+    }
+
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 1rem;
+      padding: .45rem 0;
+      border-bottom: 1px dashed #e5e3dc;
+      font-size: .88rem;
+      align-items: baseline;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-date {
+      font-variant-numeric: tabular-nums;
+      font-size: .78rem;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 75px;
+      font-style: italic;
+    }
+
+    /* ── Publications ── */
+    .pub-year-label {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a56a0;
+      margin: 1.6rem 0 .6rem;
+    }
+    .pub-item {
+      padding: .8rem 0 .8rem 1rem;
+      border-left: 3px solid #e5e3dc;
+      margin-bottom: .4rem;
+      transition: border-color .15s;
+    }
+    .pub-item:hover { border-left-color: #1a56a0; }
+    .pub-title {
+      font-weight: 500;
+      font-size: .9rem;
+      color: #1c1c1a;
+      line-height: 1.5;
+    }
+    .pub-title a { color: #1a56a0; }
+    .pub-authors {
+      font-size: .83rem;
+      color: #666;
+      margin: .15rem 0;
+    }
+    .pub-authors strong { color: #333; font-weight: 600; }
+    .pub-venue {
+      font-size: .82rem;
+      font-style: italic;
+      color: #888;
+    }
+    .badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .1rem .45rem;
+      border-radius: 20px;
+      margin-left: .35rem;
+      vertical-align: middle;
+      font-style: normal;
+    }
+    .badge-award { background: #fdf0ee; color: #c0392b; border: 1px solid #f5bfb8; }
+    .badge-rate  { background: #eef3ff; color: #2c4a8a; border: 1px solid #c5d3f0; }
+
+    /* ── Experience / Teaching ── */
+    .exp-item { margin-bottom: 1rem; }
+    .exp-role { font-weight: 600; font-size: .92rem; }
+    .exp-org  { color: #1a56a0; font-size: .88rem; }
+    .exp-period { font-size: .78rem; color: #888; font-style: italic; }
+    .exp-detail { font-size: .85rem; color: #666; margin-top: .1rem; }
+
+    .teaching-block { margin-bottom: 1.4rem; }
+    .teaching-block h4 {
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #888;
+      margin-bottom: .5rem;
+    }
+    .course-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .87rem;
+      padding: .35rem 0;
+      border-bottom: 1px dashed #ede9e2;
+    }
+    .course-row:last-child { border-bottom: none; }
+    .course-name { font-weight: 500; }
+    .course-terms { color: #888; font-size: .8rem; }
+
+    /* ── Group ── */
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: .8rem;
+    }
+    .member-card {
+      background: #fff;
+      border: 1px solid #e8e6e0;
+      border-radius: 8px;
+      padding: .9rem .7rem;
+      text-align: center;
+      font-size: .8rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      transition: box-shadow .15s, transform .15s;
+    }
+    .member-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .member-avatar {
+      font-size: 1.5rem;
+      margin-bottom: .35rem;
+    }
+    .member-name { font-weight: 600; color: #222; }
+    .member-bs { color: #888; font-size: .73rem; margin-top: .15rem; }
+
+    /* ── Services ── */
+    .service-block { margin-bottom: 1.4rem; }
+    .service-block h4 {
+      font-size: .82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #888;
+      margin-bottom: .4rem;
+    }
+    .service-list { list-style: none; }
+    .service-list li {
+      font-size: .87rem;
+      padding: .3rem 0 .3rem .9rem;
+      border-left: 2px solid #dde8f5;
+      margin-bottom: .25rem;
+      line-height: 1.5;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: .7rem;
+      font-size: .88rem;
+      align-items: flex-start;
+    }
+    .contact-icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
+    .contact-label {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #888;
+      margin-bottom: .1rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 760px) {
+      #topnav { display: none; }
+      #topnav.open {
+        display: flex;
+        flex-direction: column;
+        top: 0; left: 0; right: 0;
+        height: auto;
+        padding: 56px 1rem 1rem;
+        gap: .5rem;
+        align-items: flex-start;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+      .nav-hamburger { display: block; }
+      .page { flex-direction: column; padding: 16px 16px 60px; gap: 2rem; }
+      .profile-sidebar { position: static; width: 100%; display: flex; gap: 1.2rem; align-items: center; }
+      .profile-photo, .profile-photo-placeholder { width: 90px; height: 90px; margin: 0; font-size: 2rem; }
+      .profile-name { text-align: left; font-size: 1.2rem; }
+      .profile-subtitle { text-align: left; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .group-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top navigation -->
+<nav id="topnav">
+  <a href="#about">About Me</a>
+  <a href="#news">🔥 News</a>
+  <a href="#publications">📝 Publications</a>
+  <a href="#experience">💼 Experience</a>
+  <a href="#teaching">🎓 Teaching</a>
+  <a href="#group">👥 Group</a>
+  <a href="#services">🏅 Services</a>
+  <a href="#contact">✉️ Contact</a>
+</nav>
+
+<button class="nav-hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="page">
+
+  <!-- ════════════ LEFT SIDEBAR ════════════ -->
+  <aside class="profile-sidebar">
+    <div class="profile-photo-placeholder">👨‍🏫</div>
+    <!-- Replace the above with your actual photo:
+    <img src="assets/img/profile.jpg" alt="Hailu Xu" class="profile-photo" /> -->
+
+    <div class="profile-name">Hailu Xu</div>
+    <div class="profile-subtitle">
       Assistant Professor<br>
-      <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science">Department of Computer Engineering &amp; Computer Science</a><br>
-      California State University, Long Beach
+      Dept. of Computer Engineering<br>&amp; Computer Science<br>
+      California State University,<br>Long Beach
     </div>
-    <div class="profile-links">
-      <a href="https://scholar.google.com/citations?hl=en&user=E7ahZH8AAAAJ&view_op=list_works&sortby=pubdate" class="btn btn-primary" target="_blank">📚 Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Hailu_Xu" class="btn btn-outline" target="_blank">🔗 ResearchGate</a>
-      <a href="https://drive.google.com/file/d/1I_vpA6tFBLXzQ7XJv0Zc9LqcGrMAhMHa/view?usp=share_link" class="btn btn-outline" target="_blank">📋 C.V.</a>
-    </div>
-  </div>
+
+    <hr class="sidebar-divider" />
+
+    <ul class="profile-links">
+      <li><span class="icon">📍</span> Long Beach, CA</li>
+      <li><span class="icon">✉️</span> <a href="mailto:hailu.xu@csulb.edu">hailu.xu@csulb.edu</a></li>
+      <li><span class="icon">📚</span> <a href="https://scholar.google.com/citations?hl=en&user=E7ahZH8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a></li>
+      <li><span class="icon">🔗</span> <a href="https://www.researchgate.net/profile/Hailu_Xu" target="_blank">ResearchGate</a></li>
+      <li><span class="icon">📋</span> <a href="https://drive.google.com/file/d/1I_vpA6tFBLXzQ7XJv0Zc9LqcGrMAhMHa/view?usp=share_link" target="_blank">Curriculum Vitae</a></li>
+    </ul>
+  </aside>
+
+  <!-- ════════════ MAIN CONTENT ════════════ -->
+  <main class="main-content">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2 class="section-heading">About Me</h2>
+      <div class="bio-text">
+        <p>
+          I am a tenure-track assistant professor in the
+          <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science" target="_blank">Department of Computer Engineering &amp; Computer Science</a>
+          at California State University, Long Beach (CSULB). I received my Ph.D. in Computer Science from
+          <strong>Florida International University</strong> in Summer 2020, my M.S. from the Department of EECS at the
+          <strong>University of Toledo</strong> in Summer 2016, and my B.S. from
+          <strong>North China Electric Power University</strong> in Summer 2014.
+        </p>
+        <p>
+          My research focuses on <strong>systems with emphasis on AI, Robots, Deep Learning, Big Data, Cloud, and IoT</strong>.
+          I design and implement systems for integrating AI models, human-robot collaboration,
+          efficient distributed deep learning, social streaming data analysis, security and failure recovery
+          in streaming systems, and cloud/edge data processing.
+        </p>
+        <p>
+          If you are seeking any form of <strong>academic cooperation</strong>, or are a motivated
+          CS/CE student interested in joining the group, please feel free to email me.
+        </p>
+        <div class="recruiting">
+          🎓 <strong>Actively recruiting</strong> CS/CE master &amp; undergraduate students — send your CV and transcript to
+          <a href="mailto:hailu.xu@csulb.edu">hailu.xu@csulb.edu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="section">
+      <h2 class="section-heading">🔥 News</h2>
+      <ul class="news-list">
+        <li><span class="news-date">2026.02</span><span>Serve as NSF Panel Reviewer.</span></li>
+        <li><span class="news-date">2026.02</span><span>SwiftBot paper accepted by <a href="https://ccgrid2026.cdms.westernsydney.edu.au/" target="_blank">CCGrid 2026</a>. Congrats to Simon!</span></li>
+        <li><span class="news-date">2026.02</span><span>Congrats to Simon receiving the Graduate Travel Fellowship Award from CSULB!</span></li>
+        <li><span class="news-date">2025.12</span><span>Serve as NSF Panel Reviewer.</span></li>
+        <li><span class="news-date">2025.12</span><span>One paper accepted at WASP 2025. Congrats to Akash!</span></li>
+        <li><span class="news-date">2025.07</span><span>One paper accepted at SEET'25.</span></li>
+        <li><span class="news-date">2025.03</span><span>One paper accepted at HumanSys 2025. Congrats to Simon!</span></li>
+        <li><span class="news-date">2025.03</span><span>One paper accepted at Sensors S&amp;P 2025. <span class="badge badge-award">🏆 Best Paper</span></span></li>
+        <li><span class="news-date">2025.03</span><span>Received the summer stipend award from CSULB ORED.</span></li>
+        <li><span class="news-date">2024.08</span><span>One paper accepted by Neurocomputing.</span></li>
+        <li><span class="news-date">2024.04</span><span>Serving as Program Committee for IEEE Big Data 2024.</span></li>
+        <li><span class="news-date">2023.11</span><span>Serve as NSF Panel Reviewer.</span></li>
+        <li><span class="news-date">2023.02</span><span>One paper accepted by IEEE Transactions on Parallel and Distributed Systems (TPDS).</span></li>
+        <li><span class="news-date">2023.01</span><span>One paper accepted by IEEE ACCESS.</span></li>
+        <li><span class="news-date">2022.11</span><span>Two papers accepted — TransAI 2022 and CLOUD 2022. Congrats to Guanyu!</span></li>
+        <li><span class="news-date">2022.02</span><span>Received the Faculty Small Grant from CSULB and COE.</span></li>
+      </ul>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
+      <h2 class="section-heading">📝 Publications</h2>
+
+      <div class="pub-year-label">2026</div>
+      <div class="pub-item">
+        <div class="pub-title">SwiftBot: A Decentralized Platform for LLM-Powered Federated Robotic Task Execution</div>
+        <div class="pub-authors"><strong>Simon Zhang</strong>, Shuai Xu, Zhengxiong Li, Fangtian Zhong, Xiaokun Yang, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">CCGrid 2026 — 26th IEEE Intl. Symp. on Cluster, Cloud, and Internet Computing <span class="badge badge-rate">Accept: 25%</span></div>
+      </div>
+
+      <div class="pub-year-label">2025</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722566.3727629" target="_blank">mmVanish: Extending the Vanish Attack for Multi-Radar Exploitation of mmWave Sensing with Meta-material Tags</a></div>
+        <div class="pub-authors">Xinmin Fang, <strong>Hailu Xu</strong>, Lingfeng Tao, Zhengxiong Li</div>
+        <div class="pub-venue">Sensor S&amp;P'25 — Workshop on Security and Privacy of Sensing Systems <span class="badge badge-award">🏆 Best Paper Award</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3722570.3726881" target="_blank">Towards a Lightweight Platform for Human-Robot Interaction in Federated Edge and IoT Environments</a></div>
+        <div class="pub-authors"><strong>Simon Zhang</strong>, Zhengxiong Li, Xin Qin, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">HumanSys'25 — Workshop on Human-Centered Sensing, Modeling, and Intelligent Systems</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://aclanthology.org/2025.wasp-main.14/" target="_blank">Atlas: Customizing Large Language Models for Reliable Bibliographic Retrieval and Verification</a></div>
+        <div class="pub-authors">Akash Kodali, <strong>Hailu Xu</strong>, Wenlu Zhang, Xin Qin</div>
+        <div class="pub-venue">WASP 2025 — Workshop for Artificial Intelligence for Scientific Publications</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://drive.google.com/file/d/17aSLmfdp02QZrYOKu4o_2qvw36wCSUCy/view?usp=share_link" target="_blank">A Scalable Software-Hardware Co-Design FPGA Platform for Floating-point Operations</a></div>
+        <div class="pub-authors">Cameron D. DiSomma, Dania Susanne Mosuli, <strong>Hailu Xu</strong>, Xiaokun Yang</div>
+        <div class="pub-venue">SEET'25 — Intl. Conference on Software Engineering of Emerging Technologies</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://arxiv.org/pdf/2507.10985" target="_blank">Pronunciation Deviation Analysis Through Voice Cloning and Acoustic Comparison</a></div>
+        <div class="pub-authors">Andrew Valdivia, Yueming Zhang, <strong>Hailu Xu</strong>, Amir Ghasemkhani, Xin Qin</div>
+        <div class="pub-venue">arXiv preprint arXiv:2507.10985</div>
+      </div>
+
+      <div class="pub-year-label">2024</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231224010440" target="_blank">WSSGCN: Wide Sub-stage Graph Convolutional Networks</a></div>
+        <div class="pub-authors">Chao Wang, Zheng Tang, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">Neurocomputing, 2024</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://arxiv.org/abs/2407.18148" target="_blank">StraightLine: An End-to-End Resource-Aware Scheduler for Machine Learning Application Requests</a></div>
+        <div class="pub-authors">Cheng-Wei Ching, Boyuan Guan, <strong>Hailu Xu</strong>, Liting Hu</div>
+        <div class="pub-venue">arXiv, 2024</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10784507" target="_blank">MATLAB-Based Lightweight Workload Prediction via Machine Learning Models in Distributed Systems</a></div>
+        <div class="pub-authors">Ghadeer AI Jufout, Simon Zhang, <strong>Hailu Xu</strong>, Saleh AI Jufout</div>
+        <div class="pub-venue">IEEE GESS 2024</div>
+      </div>
+
+      <div class="pub-year-label">2023</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10077765" target="_blank">Adaptive Fragment-based Parallel State Recovery for Stream Processing Systems</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Sarker Tanzir Ahmed, Dilma Da Silva, Liting Hu</div>
+        <div class="pub-venue">IEEE Transactions on Parallel and Distributed Systems (TPDS), 2023</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10015743" target="_blank">Achieving Online and Scalable Information Integrity by Harnessing Social Spam Correlations</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Boyuan Guan, Qingyang Wang, Dilma Da Silva, Liting Hu</div>
+        <div class="pub-venue">IEEE Access, 2023</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10386899" target="_blank">Fast Meta Failure Recovery for Federated Meta-Learning</a></div>
+        <div class="pub-authors">Brandon Delliquadri, Chao Wang, Shuo Chen, Zhengxiong Li, Hui Luo, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">IEEE Big Data 2023</div>
+      </div>
+
+      <div class="pub-year-label">2022</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9848789" target="_blank">XUnified: A Framework for Guiding Optimal Use of GPU Unified Memory</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Pei-Hung Lin, Murali Emani, Liting Hu, Chunhua Liao</div>
+        <div class="pub-venue">IEEE Access, vol. 10, pp. 82614–82625, 2022</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-031-23498-9_2" target="_blank">Towards an Efficient Client Selection for Federated Learning</a></div>
+        <div class="pub-authors">Guanyu Ding, Zhengxiong Li, Yusen Wu, Xiaokun Yang, Mehrdad Aliasgari, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">CLOUD 2022 — Intl. Conference on Cloud Computing</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/9951530/" target="_blank">Making Machine Learning Datasets and Models FAIR for HPC: A Methodology and Case Study</a></div>
+        <div class="pub-authors">Pei-Hung Lin, Chunhua Liao, Winson Chen, Tristan Vanderbruggen, Murali Emani, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">TransAI 2022 — 4th Intl. Conference on Transdisciplinary AI</div>
+      </div>
+
+      <div class="pub-year-label">2021</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://drive.google.com/file/d/1tMeWGoBwGJO1jzzbRqjsRqbKV9X6XdEb/view?usp=sharing" target="_blank">COS2: Detecting Large-scale COVID-19 Misinformation in Social Networks</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Marco Curci, Sophanna Ek, Pinchao Liu, Zhengxiong Li, Shuai Xu</div>
+        <div class="pub-venue">CLOUD 2021 — Intl. Conference on Cloud Computing</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://link.springer.com/article/10.1007/s11227-021-03849-7" target="_blank">FPGA acceleration on a multi-layer perceptron neural network for digit recognition</a></div>
+        <div class="pub-authors">Isaac Westby, Xiaokun Yang, Tao Liu, <strong>Hailu Xu</strong></div>
+        <div class="pub-venue">The Journal of Supercomputing, 2021</div>
+      </div>
+
+      <div class="pub-year-label">2020 &amp; Before</div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://drive.google.com/file/d/1drx1lnDzHw-ftLxwiiuoYPqn6KS28FlD/view?usp=sharing" target="_blank">SR3: Customizable Recovery for Stateful Stream Processing Systems</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Pinchao Liu, Susana Cruz-Diaz, Dilma Da Silva, Liting Hu</div>
+        <div class="pub-venue">Middleware 2020 — 21st ACM/IFIP Middleware Conference <span class="badge badge-rate">Accept: 25%</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/9139796" target="_blank">FP4S: Fragment-based Parallel State Recovery for Stateful Stream Applications</a></div>
+        <div class="pub-authors">Pinchao Liu, <strong>Hailu Xu</strong>, Dilma Da Silva, Qingyang Wang, Sarker Tanzir Ahmed, Liting Hu</div>
+        <div class="pub-venue">IPDPS 2020 — 34th IEEE Intl. Parallel &amp; Distributed Processing Symposium</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="http://users.cis.fiu.edu/~lhu/doc/SpamHunter.pdf" target="_blank">Exploiting the Spam Correlations in Scalable Online Social Spam Detection</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, Boyuan Guan</div>
+        <div class="pub-venue">IEEE CLOUD 2019 <span class="badge badge-award">🏆 Best Student Paper Award</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8946125" target="_blank">Machine Learning Guided Optimal Use of GPU Unified Memory</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Murali Emani, Pei-Hung Lin, Liting Hu, Chunhua Liao</div>
+        <div class="pub-venue">MCHPC @ SC19 — Workshop on Memory Centric High Performance Computing</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/8457788" target="_blank">Oases: An Online Scalable Spam Detection System for Social Networks</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Liting Hu, Pinchao Liu, Yao Xiao, Wentao Wang, Jai Dayal, Qingyang Wang, Yuzhe Tang</div>
+        <div class="pub-venue">IEEE CLOUD 2018 <span class="badge badge-rate">Accept: 20%</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/7509829" target="_blank">Efficient spam detection across Online Social Networks</a></div>
+        <div class="pub-authors"><strong>Hailu Xu</strong>, Weiqing Sun, Ahmad Javaid</div>
+        <div class="pub-venue">IEEE ICBDA 2016</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h2 class="section-heading">💼 Experience &amp; Education</h2>
+
+      <div class="exp-item">
+        <div class="exp-role">Assistant Professor</div>
+        <div class="exp-org">Dept. of Computer Engineering &amp; Computer Science, California State University, Long Beach</div>
+        <div class="exp-period">Fall 2020 – Present</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">Research Intern</div>
+        <div class="exp-org">Lawrence Livermore National Laboratory</div>
+        <div class="exp-period">Summer 2019</div>
+        <div class="exp-detail">Mentors: Dr. Chunhua Liao, Dr. Murali Emani</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">Research &amp; Teaching Assistant</div>
+        <div class="exp-org">Florida International University</div>
+        <div class="exp-period">Fall 2016 – Summer 2020</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">Research &amp; Teaching Assistant</div>
+        <div class="exp-org">University of Toledo</div>
+        <div class="exp-period">January 2015 – May 2016</div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #e8e6e0;margin:1.4rem 0" />
+
+      <div class="exp-item">
+        <div class="exp-role">Ph.D., Computer Science</div>
+        <div class="exp-org">Florida International University</div>
+        <div class="exp-period">Summer 2020</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">M.S., Electrical Engineering &amp; Computer Science</div>
+        <div class="exp-org">University of Toledo</div>
+        <div class="exp-period">Summer 2016</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-role">B.S., Computer Science</div>
+        <div class="exp-org">North China Electric Power University</div>
+        <div class="exp-period">Summer 2014</div>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching" class="section">
+      <h2 class="section-heading">🎓 Teaching</h2>
+
+      <div class="teaching-block">
+        <h4>CSULB — California State University, Long Beach</h4>
+        <div class="course-row"><span class="course-name">ECS 327 — Introduction to Networks and Distributed Computing</span><span class="course-terms">Fall 2023, Spring 2024</span></div>
+        <div class="course-row"><span class="course-name">CECS 326 — Operating Systems</span><span class="course-terms">Fall 2020, Spring 2021, Fall 2021, Spring 2024</span></div>
+        <div class="course-row"><span class="course-name">CECS 526 — Advanced Operating Systems</span><span class="course-terms">Fall 2021</span></div>
+        <div class="course-row"><span class="course-name">CECS 274 — Data Structures</span><span class="course-terms">Fall 2020</span></div>
+      </div>
+
+      <div class="teaching-block">
+        <h4>FIU — Florida International University</h4>
+        <div class="course-row"><span class="course-name">COP 5614 — Operating Systems (Graduate)</span><span class="course-terms">Spring 2018, Fall 2019</span></div>
+        <div class="course-row"><span class="course-name">COP 4610 — Operating Systems (Undergraduate)</span><span class="course-terms">Fall 2017, Fall 2018, Spring 2019</span></div>
+        <div class="course-row"><span class="course-name">COP 4710 — Database Management</span><span class="course-terms">Summer 2018</span></div>
+        <div class="course-row"><span class="course-name">CGS 2518 — Data Analysis</span><span class="course-terms">Spring 2017</span></div>
+      </div>
+
+      <div class="teaching-block">
+        <h4>UT — University of Toledo</h4>
+        <div class="course-row"><span class="course-name">EECS 1100 — Digital Logic Design</span><span class="course-terms">Fall 2015</span></div>
+      </div>
+    </section>
+
+    <!-- GROUP -->
+    <section id="group" class="section">
+      <h2 class="section-heading">👥 Research Group</h2>
+      <p style="font-size:.88rem;color:#555;margin-bottom:1rem;">I am actively looking for motivated CS/CE master &amp; undergraduate students. Interests: AI systems, multi-robot computing, distributed deep learning, big data processing.</p>
+
+      <p style="font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.6rem;">Graduate Students</p>
+      <div class="group-grid" style="margin-bottom:1.4rem;">
+        <div class="member-card"><div class="member-avatar">👨‍🎓</div><div class="member-name">Simon Zhang</div><div class="member-bs">BS: CSULB</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍🎓</div><div class="member-name">Sophanna Ek</div><div class="member-bs">BS: UCSD</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍🎓</div><div class="member-name">Marco Curci</div><div class="member-bs">BS: U of Oregon</div></div>
+      </div>
+
+      <p style="font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.6rem;">Undergraduate Students</p>
+      <div class="group-grid">
+        <div class="member-card"><div class="member-avatar">👩‍💻</div><div class="member-name">Simone Gibson</div></div>
+        <div class="member-card"><div class="member-avatar">👩‍💻</div><div class="member-name">Zarya Amin</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Ryan Tran</div></div>
+        <div class="member-card"><div class="member-avatar">👩‍💻</div><div class="member-name">Rishika Baranwal</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Nicholas Chan</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Guanyu Ding</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Shrawak Shakya</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Ninjin Odkhuu</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Sean Nightingale</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Brandon Delliquadri</div></div>
+        <div class="member-card"><div class="member-avatar">👩‍💻</div><div class="member-name">Zixi Liu</div></div>
+        <div class="member-card"><div class="member-avatar">👨‍💻</div><div class="member-name">Aidan Gray</div></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <h2 class="section-heading">🏅 Services</h2>
+
+      <div class="service-block">
+        <h4>NSF Panel Reviewer</h4>
+        <ul class="service-list">
+          <li>Feb 2026 · Dec 2025 · Nov 2023</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h4>Program Committee</h4>
+        <ul class="service-list">
+          <li>IEEE Big Data 2023</li>
+          <li>ICDCS 2021 — 41st IEEE Intl. Conference on Distributed Computing Systems</li>
+          <li>CLOUD 2021 &amp; 2022 — Intl. Conference on Cloud Computing</li>
+          <li>CAINE 2021, BCD 2021, ICBDC 2021, Ubicomp CPD 2022 Workshop</li>
+          <li>ACM Multimedia 2022 (30th Edition)</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h4>Journal Editorial / Review</h4>
+        <ul class="service-list">
+          <li>Journal of Intelligent &amp; Fuzzy Systems — Associate Editor</li>
+          <li>PLOS One — Associate Editor</li>
+          <li>Future Generation Computer Systems · Social Network Mining and Analysis</li>
+          <li>IEEE Transactions on Cloud Computing · Intl. Journal of Distributed Sensor Networks · ACM TOIT</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h4>Other</h4>
+        <ul class="service-list">
+          <li>Session Chair — IEEE CLOUD 2019 (Session VIII: Cloud Platform Applications)</li>
+          <li>Judge — 2022 Riverside County Science and Engineering Fair</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-heading">✉️ Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <div class="contact-label">Email</div>
+            <a href="mailto:hailu.xu@csulb.edu">hailu.xu@csulb.edu</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <div class="contact-label">Office Address</div>
+            250 Bellflower Blvd<br>Long Beach, CA 90840
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🏫</span>
+          <div>
+            <div class="contact-label">Department</div>
+            <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science" target="_blank">Computer Engineering &amp; Computer Science</a><br>
+            California State University, Long Beach
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🔗</span>
+          <div>
+            <div class="contact-label">Academic Profiles</div>
+            <a href="https://scholar.google.com/citations?hl=en&user=E7ahZH8AAAAJ" target="_blank">Google Scholar</a> ·
+            <a href="https://www.researchgate.net/profile/Hailu_Xu" target="_blank">ResearchGate</a> ·
+            <a href="https://drive.google.com/file/d/1I_vpA6tFBLXzQ7XJv0Zc9LqcGrMAhMHa/view?usp=share_link" target="_blank">C.V.</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </div>
 
-<!-- Biography -->
-<section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">Biography</h2>
-  <div class="bio-text">
-    <p>Hailu Xu is a tenure-track assistant professor in the <a href="https://www.csulb.edu/college-of-engineering/computer-engineering-computer-science">Department of Computer Engineering &amp; Computer Science</a> at California State University, Long Beach. He received his PhD in Computer Science from Florida International University in Summer 2020. He obtained his master's degree from the Department of EECS at the University of Toledo in Summer 2016 and his bachelor's degree in Computer Science from North China Electric Power University in Summer 2014.</p>
-    <div class="recruiting-banner">
-      🎓 <strong>I am looking for CS/CE students to join our group.</strong> Please feel free to send me your CV and unofficial transcript. Students at CSULB can directly visit my office.
-    </div>
-  </div>
-</section>
+<!-- Footer -->
+<footer style="text-align:center;padding:1.2rem;font-size:.78rem;color:#aaa;border-top:1px solid #e8e6e0;background:#fff;">
+  © <span id="yr"></span> Hailu Xu · California State University, Long Beach
+</footer>
 
-<!-- Research Focus -->
-<section style="margin-bottom:2.5rem;">
-  <h2 class="section-title">Research: System, Data, and AI</h2>
-  <div class="bio-text">
-    <p>Hailu Xu's research focuses on systems with emphasis on AI, Robots, Deep Learning, Big Data, Cloud, and IoT. He designs and implements systems for integrating AI models, human-robot collaboration, supporting efficient distributed deep learning, analyzing social streaming data, handling security issues and recovering failures in streaming systems, and processing data in cloud and edge environments.</p>
-  </div>
-</section>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-<!-- News -->
-<section>
-  <h2 class="section-title">News</h2>
-  <ul class="news-list">
-    <li><span class="news-date">Feb 2026</span><span>Serve as NSF Panel Reviewer.</span></li>
-    <li><span class="news-date">Feb 2026</span><span>Our SwiftBot paper is accepted by <a href="https://ccgrid2026.cdms.westernsydney.edu.au/">CCGrid 2026</a>. Congrats to Simon!</span></li>
-    <li><span class="news-date">Feb 2026</span><span>Congrats to Simon receiving the Graduate Travel Fellowship Award from CSULB!</span></li>
-    <li><span class="news-date">Dec 2025</span><span>Serve as NSF Panel Reviewer.</span></li>
-    <li><span class="news-date">Dec 2025</span><span>One paper accepted by workshop at WASP 2025. Congrats to Akash!</span></li>
-    <li><span class="news-date">Jul 2025</span><span>One paper accepted by SEET'25.</span></li>
-    <li><span class="news-date">Mar 2025</span><span>One paper accepted by HumanSys 2025. Congrats to Simon!</span></li>
-    <li><span class="news-date">Mar 2025</span><span>One paper accepted by Sensors S&amp;P 2025.</span></li>
-    <li><span class="news-date">Mar 2025</span><span>Received the summer stipend award from CSULB. Thanks to CSULB ORED!</span></li>
-    <li><span class="news-date">Aug 2024</span><span>One paper accepted by Neurocomputing.</span></li>
-    <li><span class="news-date">Apr 2024</span><span>Serve as Program Committee in the IEEE Big Data 2024.</span></li>
-    <li><span class="news-date">Nov 2023</span><span>Serve as NSF Panel Reviewer.</span></li>
-    <li><span class="news-date">Feb 2023</span><span>One paper got accepted by IEEE Transactions on Parallel and Distributed Systems (TPDS).</span></li>
-    <li><span class="news-date">Jan 2023</span><span>One paper got accepted by IEEE ACCESS.</span></li>
-    <li><span class="news-date">Nov 2022</span><span>One paper got accepted by TransAI 2022.</span></li>
-    <li><span class="news-date">Nov 2022</span><span>One paper got accepted by CLOUD 2022. Congrats to Guanyu!</span></li>
-    <li><span class="news-date">Aug 2022</span><span>One paper got accepted by IEEE ACCESS.</span></li>
-    <li><span class="news-date">Feb 2022</span><span>Received the Faculty Small Grant, thanks to CSULB and COE!</span></li>
-  </ul>
-</section>
+  // Hamburger toggle
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('topnav').classList.toggle('open');
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#topnav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`#topnav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
