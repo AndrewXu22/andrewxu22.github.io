@@ -1,0 +1,513 @@
+/* ========================================
+   Hailu Xu – Academic Personal Website
+   Theme: Clean Academic with Sharp Accents
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg:         #fafaf8;
+  --surface:    #ffffff;
+  --border:     #e5e3de;
+  --text:       #1a1a18;
+  --muted:      #6b6b65;
+  --accent:     #1a4d8f;        /* deep academic blue */
+  --accent-lt:  #e8f0fb;
+  --accent2:    #c0392b;        /* award / highlight red */
+  --nav-bg:     #0f2d5e;
+  --nav-text:   #e8edf5;
+  --nav-active: #5b9bd5;
+  --font-sans:  'IBM Plex Sans', sans-serif;
+  --font-serif: 'IBM Plex Serif', serif;
+  --font-mono:  'IBM Plex Mono', monospace;
+  --radius:     4px;
+  --shadow:     0 1px 4px rgba(0,0,0,.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,.10);
+  --max-w:      860px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ── Layout ── */
+.site-wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* ── Top bar ── */
+.site-header {
+  grid-column: 1 / -1;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.site-header .site-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.site-header .site-title span {
+  color: var(--nav-active);
+}
+
+/* Hamburger */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-toggle span {
+  display: block; width: 22px; height: 2px; background: var(--nav-text); margin: 5px 0;
+  transition: all .2s;
+}
+
+/* ── Sidebar nav ── */
+.site-nav {
+  grid-column: 1;
+  background: var(--nav-bg);
+  padding: 1.5rem 0 2rem;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.site-nav ul { list-style: none; }
+.site-nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .6rem 1.5rem;
+  color: var(--nav-text);
+  font-size: .88rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  border-left: 3px solid transparent;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.site-nav ul li a:hover,
+.site-nav ul li a.active {
+  background: rgba(91,155,213,.15);
+  border-left-color: var(--nav-active);
+  color: #fff;
+  text-decoration: none;
+}
+.site-nav ul li a .nav-icon { font-size: 1rem; opacity: .7; }
+
+/* ── Main content ── */
+.site-main {
+  grid-column: 2;
+  padding: 2.5rem 3rem 4rem;
+  max-width: var(--max-w);
+}
+
+/* ── Footer ── */
+.site-footer {
+  grid-column: 1 / -1;
+  background: var(--nav-bg);
+  color: rgba(232,237,245,.65);
+  text-align: center;
+  padding: 1.2rem;
+  font-size: .8rem;
+}
+.site-footer a { color: var(--nav-active); }
+
+/* ── Profile card (homepage) ── */
+.profile-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  align-items: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow);
+}
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 3px solid var(--accent-lt);
+}
+.profile-photo-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 6px;
+  background: var(--accent-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--accent);
+  border: 3px solid var(--border);
+}
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: .3rem;
+}
+.profile-title {
+  font-size: .95rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .8rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .4rem .85rem;
+  border-radius: var(--radius);
+  font-size: .82rem;
+  font-weight: 500;
+  transition: all .15s;
+  border: 1.5px solid;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.btn-primary:hover { background: #15407a; text-decoration: none; }
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline:hover { background: var(--accent-lt); text-decoration: none; }
+
+/* ── Section headings ── */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: .4rem;
+  margin-bottom: 1.2rem;
+}
+.page-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+  color: var(--text);
+}
+
+/* ── Bio text ── */
+.bio-text {
+  font-size: .95rem;
+  line-height: 1.8;
+  color: #2a2a28;
+}
+.bio-text p + p { margin-top: .8rem; }
+.bio-text a { font-weight: 500; }
+
+/* ── Recruiting banner ── */
+.recruiting-banner {
+  background: var(--accent-lt);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: .8rem 1.2rem;
+  font-size: .88rem;
+  margin-top: 1rem;
+  color: #1a2a4a;
+}
+
+/* ── News ── */
+.news-list { list-style: none; }
+.news-list li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: .8rem;
+  padding: .55rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: .9rem;
+  align-items: baseline;
+}
+.news-list li:last-child { border-bottom: none; }
+.news-date {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ── Publications ── */
+.pub-year-group { margin-bottom: 2rem; }
+.pub-year {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.pub-year::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.pub-list { list-style: none; }
+.pub-list li {
+  padding: .75rem 0 .75rem 1rem;
+  border-left: 3px solid var(--border);
+  margin-bottom: .5rem;
+  font-size: .9rem;
+  line-height: 1.65;
+  transition: border-color .15s;
+}
+.pub-list li:hover { border-left-color: var(--accent); }
+.pub-authors { color: var(--muted); }
+.pub-title { font-weight: 500; }
+.pub-title a { color: var(--text); }
+.pub-title a:hover { color: var(--accent); }
+.pub-venue { font-style: italic; font-size: .85rem; color: var(--muted); }
+.pub-badge {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .1rem .5rem;
+  border-radius: 20px;
+  margin-left: .4rem;
+  vertical-align: middle;
+}
+.badge-award { background: #fdf0ee; color: var(--accent2); border: 1px solid #f5bfb8; }
+.badge-accept { background: #f0f4ff; color: #2c4a8a; border: 1px solid #c5d3f0; }
+
+/* ── Research projects ── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.project-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: .6rem;
+}
+.project-card p { font-size: .9rem; line-height: 1.75; }
+.project-tag {
+  display: inline-block;
+  font-size: .75rem;
+  background: var(--accent-lt);
+  color: var(--accent);
+  padding: .15rem .5rem;
+  border-radius: 20px;
+  margin-bottom: .8rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+/* ── Experience timeline ── */
+.timeline { position: relative; padding-left: 1.5rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: .45rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-role {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+.timeline-org {
+  color: var(--accent);
+  font-size: .92rem;
+  margin: .1rem 0;
+}
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+.timeline-detail { font-size: .88rem; color: var(--muted); }
+
+/* ── Teaching table ── */
+.teaching-section { margin-bottom: 2rem; }
+.teaching-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: .8rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--border);
+}
+.course-list { list-style: none; }
+.course-list li {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: .88rem;
+  align-items: baseline;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-name { font-weight: 500; }
+.course-terms { color: var(--muted); font-size: .82rem; }
+
+/* ── Group members ── */
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.member-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem .8rem;
+  text-align: center;
+  font-size: .83rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow .15s, transform .15s;
+}
+.member-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.member-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto .5rem;
+  color: var(--accent);
+}
+.member-name { font-weight: 600; color: var(--text); }
+.member-info { color: var(--muted); font-size: .78rem; margin-top: .2rem; }
+
+/* ── Services ── */
+.service-section { margin-bottom: 2rem; }
+.service-section h3 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .7rem;
+  color: var(--muted);
+}
+.service-list { list-style: none; }
+.service-list li {
+  padding: .45rem 0 .45rem .8rem;
+  border-left: 2px solid var(--accent-lt);
+  margin-bottom: .3rem;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.service-list li strong { color: var(--accent); font-weight: 500; }
+
+/* ── Contact ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.contact-item {
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+  font-size: .9rem;
+}
+.contact-icon {
+  font-size: 1.2rem;
+  margin-top: .1rem;
+  flex-shrink: 0;
+}
+.contact-label { font-weight: 600; margin-bottom: .2rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .site-wrapper { grid-template-columns: 1fr; }
+  .site-nav {
+    grid-column: 1;
+    position: fixed;
+    left: -240px;
+    top: 56px;
+    width: 240px;
+    height: calc(100vh - 56px);
+    z-index: 200;
+    transition: left .25s ease;
+    box-shadow: 4px 0 16px rgba(0,0,0,.2);
+  }
+  .site-nav.open { left: 0; }
+  .site-main { grid-column: 1; padding: 1.5rem 1.2rem 3rem; }
+  .site-footer { grid-column: 1; }
+  .nav-toggle { display: block; }
+  .profile-card { grid-template-columns: 1fr; text-align: center; }
+  .profile-photo, .profile-photo-placeholder { margin: 0 auto; }
+  .profile-links { justify-content: center; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .course-list li { grid-template-columns: 1fr; gap: .2rem; }
+}
+@media (max-width: 520px) {
+  .news-list li { grid-template-columns: 1fr; gap: .2rem; }
+  .news-date { font-size: .75rem; }
+}
